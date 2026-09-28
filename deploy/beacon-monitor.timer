@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Beacon health and operations monitor
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=1m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

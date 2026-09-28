@@ -1,0 +1,59 @@
+# Application-only deployment. Supply a private PostgreSQL service and host TLS proxy.
+name: beacon-production
+services:
+  beacon:
+    image: ${BEACON_IMAGE:?Set a reviewed image digest}
+    environment:
+      BEACON_DEV: "false"
+      BEACON_URL: ${BEACON_URL:?Set the HTTPS origin}
+      BEACON_ORG: ${BEACON_ORG:?Set organization}
+      BEACON_SECURITY_EXPIRES: ${BEACON_SECURITY_EXPIRES:?Set expiry}
+      BEACON_LISTEN: 0.0.0.0:8787
+      # Set this to the CIDR of the host-side proxy's address as seen by the
+      # container. Never use 0.0.0.0/0; forwarded headers are ignored unless
+      # the immediate peer is in this explicit network.
+      BEACON_TRUSTED_PROXY_CIDRS: ${BEACON_TRUSTED_PROXY_CIDRS:?Set the immediate reverse-proxy CIDR}
+      DATABASE_URL_FILE: /run/secrets/database_url
+      BEACON_KEY_FILE: /run/secrets/encryption_key
+      BEACON_SMTP_ADDR: ${BEACON_SMTP_ADDR:?Set SMTP host:port}
+      BEACON_SMTP_FROM: ${BEACON_SMTP_FROM:?Set sender}
+      BEACON_SMTP_USER: ${BEACON_SMTP_USER:-}
+      BEACON_SMTP_PASSWORD_FILE: /run/secrets/smtp_password
+    secrets: [database_url, encryption_key, smtp_password]
+    ports: ["127.0.0.1:8787:8787"]
+    read_only: true
+    user: "65532:65532"
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=32m"]
+    mem_limit: 768m
+    cpus: 2
+    pids_limit: 128
+    restart: unless-stopped
+  migration:
+    image: ${BEACON_IMAGE:?Set a reviewed image digest}
+    profiles: [migration]
+    environment:
+      BEACON_DEV: "false"
+      BEACON_ADMIN_EMAIL: ${BEACON_ADMIN_EMAIL:?Set the bootstrap owner email}
+      BEACON_ADMIN_PASSWORD_FILE: /run/secrets/admin_password
+      DATABASE_URL_FILE: /run/secrets/migration_database_url
+      BEACON_KEY_FILE: /run/secrets/encryption_key
+    secrets: [migration_database_url, encryption_key, admin_password]
+    user: "65532:65532"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [default]
+    command: ["migrate"]
+secrets:
+  database_url:
+    file: ${BEACON_SECRET_DIR:?Set secret directory}/database_url
+  encryption_key:
+    file: ${BEACON_SECRET_DIR}/encryption_key
+  smtp_password:
+    file: ${BEACON_SECRET_DIR}/smtp_password
+  migration_database_url:
+    file: ${BEACON_SECRET_DIR}/migration_database_url
+  admin_password:
+    file: ${BEACON_SECRET_DIR}/admin_password

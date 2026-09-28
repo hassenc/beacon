@@ -1,0 +1,9 @@
+.env*
+.git
+bin
+artifacts
+*.log
+secrets
+docs/business
+docs/original-specification.md
+.publication.json

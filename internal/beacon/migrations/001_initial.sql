@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS schema_version (version integer PRIMARY KEY);
+INSERT INTO schema_version VALUES (1) ON CONFLICT DO NOTHING;
+CREATE TABLE IF NOT EXISTS users (id text PRIMARY KEY, name text NOT NULL, email text UNIQUE NOT NULL, role text NOT NULL CHECK (role IN ('OWNER','TRIAGE','ENGINEER','VIEWER')), password text NOT NULL);
+CREATE TABLE IF NOT EXISTS products (id text PRIMARY KEY, data jsonb NOT NULL);
+CREATE TABLE IF NOT EXISTS cases (ref text PRIMARY KEY, token_hash text UNIQUE NOT NULL, data jsonb NOT NULL);
+CREATE TABLE IF NOT EXISTS sessions (hash text PRIMARY KEY, user_id text NOT NULL DEFAULT '', case_ref text NOT NULL DEFAULT '', expires timestamptz NOT NULL, CHECK ((user_id = '') <> (case_ref = '')));
+CREATE INDEX IF NOT EXISTS sessions_expiry ON sessions(expires);
+CREATE TABLE IF NOT EXISTS audit_events (sequence bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY, at timestamptz NOT NULL, actor text NOT NULL, action text NOT NULL, object text NOT NULL, metadata text NOT NULL, previous text NOT NULL, hash text NOT NULL);
+CREATE OR REPLACE FUNCTION reject_audit_change() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'audit events are append-only'; END; $$;
+DROP TRIGGER IF EXISTS audit_append_only ON audit_events;
+CREATE TRIGGER audit_append_only BEFORE UPDATE OR DELETE OR TRUNCATE ON audit_events FOR EACH STATEMENT EXECUTE FUNCTION reject_audit_change();
+CREATE TABLE IF NOT EXISTS deployment_secrets (id integer PRIMARY KEY CHECK(id=1), key_check bytea NOT NULL);

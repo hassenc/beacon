@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+bin/
+artifacts/
+*.log
+*.zip
+*.dump
+.DS_Store
+secrets/
+.beacon-backup.key
+.publication.json
+# Local product strategy and supplied planning material are not public source.
+docs/business/
+docs/original-specification.md
+
+# Local encrypted backups, private keys and Python caches.
+*.backup
+*.key
+*.p12
+*.pfx
+__pycache__/
+*.py[cod]

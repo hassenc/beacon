@@ -1,0 +1,13 @@
+[Unit]
+Description=Beacon health and operations monitor
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/beacon
+ExecStart=/usr/bin/env python3 /opt/beacon/scripts/beacon-monitor.py --config /etc/beacon/monitor.env
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/beacon
+NoNewPrivileges=true

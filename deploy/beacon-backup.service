@@ -1,0 +1,13 @@
+[Unit]
+Description=Beacon authenticated production backup
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/beacon
+ExecStart=/opt/beacon/scripts/production-backup.sh /etc/beacon/production-backup.env
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/beacon/backups /mnt/offhost/beacon
+NoNewPrivileges=true

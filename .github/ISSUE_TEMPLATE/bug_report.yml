@@ -1,0 +1,16 @@
+name: Bug report
+description: Use the private security channel for vulnerabilities; never include real case data.
+title: ""
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected behavior
+      description: Include version, deployment type, and minimal synthetic steps.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Remove credentials, report content, tokens and personal information.

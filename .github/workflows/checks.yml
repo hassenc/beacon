@@ -1,0 +1,48 @@
+name: checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine@sha256:18cfe3ef5e6815560c98237d6216d1e5119702fb0f3894c8785dd58b8bbe5d73
+        env:
+          POSTGRES_PASSWORD: ephemeral-ci-only
+          POSTGRES_DB: beacon_test
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      BEACON_TEST_DATABASE_URL: postgres://postgres:ephemeral-ci-only@localhost:5432/beacon_test?sslmode=disable
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+        with:
+          go-version-file: go.mod
+          cache: true
+      - run: go test -race ./...
+      - run: go vet ./...
+      - run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+      - name: Formatting
+        run: test -z "$(gofmt -l cmd internal)"
+      - name: Secret scan
+        run: |
+          go install github.com/zricethezav/gitleaks/v8@v8.24.3
+          gitleaks git --redact --no-banner
+      - name: Localization catalogs
+        run: python3 scripts/localize.py --check
+      - name: Operational tooling contracts
+        run: |
+          bash -n scripts/*.sh
+          python3 -m py_compile scripts/beacon-monitor.py scripts/test_monitor.py scripts/validate-restore-target.py
+          python3 scripts/test_monitor.py
+          scripts/test-production-tools.sh
+          git diff --check
+      - name: Container vulnerability scan
+        run: |
+          docker build -t beacon:ci .
+          docker save -o /tmp/beacon-image.tar beacon:ci
+          docker run --rm -v /tmp/beacon-image.tar:/scan/image.tar:ro aquasec/trivy:0.69.3@sha256:bcc376de8d77cfe086a917230e818dc9f8528e3c852f7b1aff648949b6258d1c image --input /scan/image.tar --scanners vuln --severity HIGH,CRITICAL --exit-code 1
