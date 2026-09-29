@@ -15,4 +15,4 @@ delivery before sending unpublished vulnerability details.
 
 Administrators must supply their own disclosure policy and contact information before using the public portal. A Beacon deployment does not automatically authorize research or constitute a safe-harbor agreement.
 
-See THREAT_MODEL.md and docs/security/release-checklist.md for controls and limitations.
+See THREAT_MODEL.md and DEPLOYMENT.md for controls and limitations.
