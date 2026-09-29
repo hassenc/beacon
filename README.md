@@ -11,6 +11,8 @@ Receive private vulnerability reports, coordinate investigation, preserve eviden
 Requires Docker Compose and Python 3.
 
 ```sh
+git clone https://github.com/hassenc/beacon.git
+cd beacon
 ./scripts/setup.sh
 docker compose up --build -d
 ```
@@ -22,6 +24,12 @@ docker compose exec beacon /beacon seed-demo
 ```
 
 Stop with `docker compose down`. The database volume persists. Keep the encryption key safe: a backup without its matching key cannot recover encrypted records. Do not use `down -v` unless deliberately deleting the local database.
+
+See the [synthetic evaluation walkthrough](docs/evaluation-walkthrough.md) for
+the reporter → triage → response → export path. For non-sensitive evaluation
+feedback, open a [public issue](https://github.com/hassenc/beacon/issues) with
+synthetic or redacted information only. Do not use public issues for
+vulnerabilities or private reporter data; follow [SECURITY.md](SECURITY.md).
 
 ## Included
 
@@ -75,6 +83,8 @@ storage, monitoring route and recipients.
 - [Deployment configuration](docs/deployment/README.md) and [operator runbook](docs/operations/runbook.md)
 - [Backup and restore](docs/backup/README.md)
 - [Customer operations template](docs/operations/customer-operations-template.md)
+- [Synthetic evaluation walkthrough](docs/evaluation-walkthrough.md)
+- [v0.1.0-beta.1 evaluation release notes](docs/releases/v0.1.0-beta.1.md)
 - [Threat model](THREAT_MODEL.md) and [security policy](SECURITY.md)
 - [Contribution guide](CONTRIBUTING.md) and [governance](GOVERNANCE.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
