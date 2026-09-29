@@ -6,7 +6,7 @@ toolchain go1.26.8
 
 require (
 	github.com/coreos/go-oidc/v3 v3.21.0
-	github.com/go-jose/go-jose/v4 v4.1.4
+	github.com/go-jose/go-jose/v4 v4.1.5
 	github.com/lib/pq v1.12.3
 	github.com/pquerna/otp v1.5.0
 	golang.org/x/crypto v0.57.0
