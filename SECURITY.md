@@ -4,10 +4,9 @@ Beacon 0.1.0-beta.1 is a synthetic-evaluation source repository hosted at
 `https://github.com/hassenc/beacon`. It is an evaluation build, not a supported
 production release. Use synthetic information until the
 production release checklist and independent review are complete. No
-production version is currently supported, and the proposed private maintainer
-security contact is `mailto:contact@grislabs.com`. Delivery has not yet been
-verified, so do not treat this address as an active confidential-reporting
-channel yet.
+production version is currently supported, and the private maintainer security
+contact is `mailto:contact@grislabs.com`. Delivery has been verified; use this
+address for confidential security reports.
 
 Do not open public issues containing unpublished vulnerabilities, exploit
 details, or reporter identity. Maintainers must configure and verify a private
