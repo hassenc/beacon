@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Sitemap: https://beacon.grislabs.com/sitemap.xml
+
+# Permit ChatGPT search discovery without granting model-training crawler access.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /

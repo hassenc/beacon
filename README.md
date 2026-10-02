@@ -6,6 +6,8 @@ Receive private vulnerability reports, coordinate investigation, preserve eviden
 
 **Current version: 0.1.0-beta.1, synthetic evaluation source.** Hardening and operations tooling are implemented and locally tested, but production acceptance remains open. Use synthetic data until the deployment gates are satisfied.
 
+Product and guide site: [Beacon Community](https://beacon.grislabs.com/) (marketing deployment in progress).
+
 ## Try locally
 
 Requires Docker Compose and Python 3.

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Open-source, self-hosted vulnerability response software for product security teams. Receive private reports, coordinate triage and preserve evidence.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#f7f8f6">
+  <link rel="canonical" href="https://beacon.grislabs.com/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Beacon">
+  <meta property="og:title" content="Beacon — open-source vulnerability response software">
+  <meta property="og:description" content="A self-hosted workspace for private vulnerability intake, response coordination and evidence.">
+  <meta property="og:url" content="https://beacon.grislabs.com/">
+  <meta property="og:image" content="https://beacon.grislabs.com/assets/beacon-workflow.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Beacon — open-source vulnerability response software</title>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Beacon Community",
+    "applicationCategory":"SecurityApplication",
+    "operatingSystem":"Linux, macOS, Windows (via Docker)",
+    "description":"Open-source, self-hosted product vulnerability intake and response coordination software.",
+    "url":"https://beacon.grislabs.com/",
+    "sameAs":"https://github.com/hassenc/beacon",
+    "license":"https://www.apache.org/licenses/LICENSE-2.0"
+  }
+  </script>
+  <script src="/config.js"></script>
+  <script src="/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Beacon home"><span class="brand-mark" aria-hidden="true"><span>◈</span></span> beacon</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#workflow">Workflow</a>
+        <a href="#guides">Guides</a>
+        <a href="https://github.com/hassenc/beacon/blob/main/docs/evaluation-walkthrough.md">Evaluation guide</a>
+        <a class="nav-cta" href="https://github.com/hassenc/beacon">Explore the source <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="#demo" data-demo-request hidden>Request a guided demo <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Open-source product security workflow</p>
+        <h1 id="hero-title">A clearer response to <em>vulnerability reports.</em></h1>
+        <p class="hero-copy">Receive private reports, coordinate triage and reporter conversations, and preserve evidence in a self-hosted workspace.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://github.com/hassenc/beacon/blob/main/docs/evaluation-walkthrough.md">Try the synthetic walkthrough <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://github.com/hassenc/beacon">View the open-source project</a>
+          <a class="button secondary" href="#demo" data-demo-request hidden>Request a guided demo</a>
+        </div>
+        <p class="microcopy">Beacon is in beta. Evaluate with synthetic data; production acceptance is not established.</p>
+        <div class="hero-points" aria-label="Product characteristics"><span>Self-hosted</span><span>Apache-2.0</span><span>No product telemetry</span></div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Illustration of a private report moving through a reviewable team workflow">
+        <svg viewBox="0 0 540 410" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="26" y="23" width="488" height="364" rx="22" fill="#fff" stroke="#d4dfdb"/>
+          <path d="M26 45a22 22 0 0 1 22-22h444a22 22 0 0 1 22 22v34H26z" fill="#f5f8f6"/>
+          <circle cx="53" cy="51" r="5" fill="#c3d0cc"/><circle cx="70" cy="51" r="5" fill="#c3d0cc"/><circle cx="87" cy="51" r="5" fill="#c3d0cc"/>
+          <rect x="54" y="108" width="174" height="235" rx="13" fill="#f7f8f6" stroke="#e0e6e3"/>
+          <text x="76" y="142" fill="#126b57" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">PRIVATE INTAKE</text>
+          <text x="76" y="176" fill="#17233a" font-family="system-ui,sans-serif" font-size="19" font-weight="700">Report received</text>
+          <rect x="76" y="194" width="127" height="8" rx="4" fill="#cbd7d3"/>
+          <rect x="76" y="214" width="106" height="8" rx="4" fill="#dbe3e0"/>
+          <rect x="76" y="244" width="134" height="42" rx="8" fill="#e5f2ed"/>
+          <path d="M94 265l8 8 17-19" fill="none" stroke="#126b57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="129" y="270" fill="#21433c" font-family="system-ui,sans-serif" font-size="12" font-weight="600">Reporter can return</text>
+          <circle cx="270" cy="219" r="24" fill="#e5f2ed"/><path d="M258 219h24m-8-8 8 8-8 8" fill="none" stroke="#126b57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="314" y="108" width="167" height="235" rx="13" fill="#172b37"/>
+          <text x="338" y="142" fill="#9bd4c0" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">TEAM RESPONSE</text>
+          <text x="338" y="176" fill="#fff" font-family="system-ui,sans-serif" font-size="19" font-weight="700">One case record</text>
+          <rect x="338" y="196" width="119" height="1" fill="#49616a"/>
+          <circle cx="347" cy="222" r="5" fill="#a9dfc9"/><text x="362" y="227" fill="#e6f0ed" font-family="system-ui,sans-serif" font-size="12">Triage &amp; owner</text>
+          <circle cx="347" cy="255" r="5" fill="#a9dfc9"/><text x="362" y="260" fill="#e6f0ed" font-family="system-ui,sans-serif" font-size="12">Shared replies</text>
+          <circle cx="347" cy="288" r="5" fill="#a9dfc9"/><text x="362" y="293" fill="#e6f0ed" font-family="system-ui,sans-serif" font-size="12">Audit &amp; export</text>
+          <text x="54" y="368" fill="#56647a" font-family="system-ui,sans-serif" font-size="12">Synthetic workflow illustration · no customer data</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section white" aria-labelledby="who-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Who it serves</p><h2 id="who-title">For teams that need a response process they can operate.</h2><p>Beacon is a workflow tool for organizations responsible for product security and the people helping them build a coordinated disclosure practice.</p></div>
+        <div class="audience-grid">
+          <article class="card"><span class="step">01 · PRODUCT TEAMS</span><h3>Manufacturer security teams</h3><p>Give a small product-security function a private intake route, clear case ownership, a reporter conversation and a reviewable record.</p></article>
+          <article class="card"><span class="step">02 · IMPLEMENTATION</span><h3>Security consultancies</h3><p>Explore whether a self-hosted workflow can support a customer's own response and handover. Beacon is not a managed triage service.</p></article>
+          <article class="card"><span class="step">03 · OPEN EVALUATION</span><h3>Teams assessing their options</h3><p>Run a synthetic report through the workflow locally. Keep real reports, personal data and production credentials out of the beta evaluation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section" aria-labelledby="workflow-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">From first contact to evidence</p><h2 id="workflow-title">A workflow your team can follow and review.</h2><p>Use Beacon to coordinate the work. People remain responsible for legal assessment, product decisions, disclosure and external filing.</p></div>
+        <div class="workflow">
+          <article class="workflow-item"><h3>Private intake</h3><p>A researcher can submit a report without creating an account and receive a one-time recovery token.</p></article>
+          <article class="workflow-item"><h3>Triage and ownership</h3><p>Staff review the case, assign an owner, record product and version context, and advance its status.</p></article>
+          <article class="workflow-item"><h3>Reporter conversation</h3><p>Keep reporter-visible replies distinct from internal notes; the reporter sees only the shared conversation.</p></article>
+          <article class="workflow-item"><h3>Evidence and export</h3><p>Review the audit history and select information for export. A person confirms the content before sharing.</p></article>
+        </div>
+        <p class="microcopy">A public screenshot set is not included yet; use the linked synthetic walkthrough to inspect the application locally. No customer or production deployment is represented here.</p>
+      </div>
+    </section>
+
+    <section class="section white" aria-labelledby="capabilities-title">
+      <div class="container split">
+        <div>
+          <div class="section-heading"><p class="eyebrow">What Beacon supports</p><h2 id="capabilities-title">Keep the operational record together.</h2></div>
+          <ul class="check-list">
+            <li>Self-hosted Go and PostgreSQL application under Apache-2.0.</li>
+            <li>Private report intake, recovery-token access and encrypted evidence.</li>
+            <li>Role-based triage, assignments, status history and audit records.</li>
+            <li>Distinct internal notes and reporter-visible communication.</li>
+            <li>Human-reviewed selective exports and manually activated CRA deadline tracking.</li>
+            <li>English and French application pages, with no product analytics or telemetry.</li>
+          </ul>
+          <p><a href="https://github.com/hassenc/beacon">See the source and full feature boundaries ↗</a></p>
+        </div>
+        <aside class="boundary-box" aria-labelledby="limits-title">
+          <p class="eyebrow">Scope matters</p>
+          <h3 id="limits-title">What Beacon does not do</h3>
+          <ul>
+            <li>It does not decide whether the CRA applies or whether a report meets a legal trigger.</li>
+            <li>It does not submit notifications to ENISA or the Single Reporting Platform.</li>
+            <li>It is not a bug-bounty marketplace, managed response team or 24/7 service.</li>
+            <li>Beta and local tests do not certify production security or capacity.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="help-title">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Optional implementation help</p>
+          <h2 id="help-title">Keep hosting and response ownership with your organization.</h2>
+          <p>For teams that choose Beacon but need help with installation, configuration, recovery rehearsal and handover, a bounded onboarding service is being explored. The service would not include managed hosting, legal certification or 24/7 monitoring.</p>
+          <p>Scope and contact arrangements are still being finalized. No public price is offered here.</p>
+          <a class="button" href="#demo" data-demo-request hidden>Request a guided demo</a>
+        </div>
+        <div class="boundary-box">
+          <h3>Ready to evaluate?</h3>
+          <p>Start with the public synthetic walkthrough or clone the repository and run Beacon locally. Do not submit a real vulnerability to the evaluation setup.</p>
+          <p><a class="button secondary" href="https://github.com/hassenc/beacon/blob/main/docs/evaluation-walkthrough.md">Open the evaluation walkthrough</a></p>
+          <p><a href="https://github.com/hassenc/beacon/releases/tag/v0.1.0-beta.1">Read the beta release notes ↗</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="guides" class="section white" aria-labelledby="guides-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Practical reading</p><h2 id="guides-title">Build the response practice around the tool.</h2><p>Original field guides based on public primary sources and Beacon's published behavior. They are operational starting points, not legal advice.</p></div>
+        <div class="guide-list">
+          <a class="guide-link" href="/guides/vdp-for-small-teams/"><span>How to set up a vulnerability disclosure program for a small product team</span><small>Scope · ownership · triage · launch checklist</small></a>
+          <a class="guide-link" href="/guides/vdp-policy-template/"><span>Vulnerability disclosure policy template—with an operational checklist</span><small>Editable template · field-by-field review</small></a>
+          <a class="guide-link" href="/guides/cra-24-72/"><span>EU Cyber Resilience Act reporting: preparing the 24-hour and 72-hour workflow</span><small>Triggers · evidence · SRP responsibilities</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Frequently asked</p><h2 id="faq-title">A few useful boundaries.</h2></div>
+        <div class="faq-grid">
+          <details><summary>Who hosts Beacon?</summary><p>Your organization runs it in infrastructure it controls. The maintainers do not host your reports. Use the local beta walkthrough until your own deployment has passed its acceptance gates.</p></details>
+          <details><summary>How do researchers communicate with the team?</summary><p>They submit through the organization's Beacon portal and can return with their one-time recovery token. Staff messages are explicitly marked as internal or reporter-visible.</p></details>
+          <details><summary>Is Beacon a bug-bounty service?</summary><p>No. Beacon does not run a marketplace, find researchers, set rewards or pay bounties. An organization may operate its own disclosure policy and incentive program separately.</p></details>
+          <details><summary>What does Beacon do for the CRA?</summary><p>It can record human-confirmed activation and deadlines and prepare a reviewed export. It does not determine legal applicability or file anything through ENISA's Single Reporting Platform.</p></details>
+          <details><summary>How can we evaluate it?</summary><p>Use the published setup and synthetic walkthrough locally. You can also request a guided screen-share when a business contact route is configured.</p></details>
+          <details><summary>How do I report a vulnerability in Beacon?</summary><p>Use the instructions in <a href="https://github.com/hassenc/beacon/blob/main/SECURITY.md">Beacon's security policy</a>. That route is for security issues in Beacon itself, not buying or requesting a demo.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><a class="brand" href="/" style="color:#fff"><span class="brand-mark" aria-hidden="true"><span>◈</span></span> beacon</a><p class="footer-note">Beacon Community · Apache-2.0 · <a href="https://github.com/hassenc/beacon">public source repository</a>. Open-source vulnerability response software. Beta evaluation only; use synthetic data until your deployment is independently accepted for its intended use.</p></div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="https://github.com/hassenc/beacon">Source</a>
+        <a href="https://github.com/hassenc/beacon/blob/main/LICENSE">Apache-2.0 license</a>
+        <a href="https://github.com/hassenc/beacon/blob/main/SECURITY.md">Report a Beacon vulnerability</a>
+        <a href="https://github.com/hassenc/beacon/blob/main/PRIVACY.md">Privacy and data handling</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
