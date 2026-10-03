@@ -15,4 +15,4 @@
 - [ ] Test records and secrets are removed; public page and exports are reviewed before sharing.
 - [ ] Owner and review date are recorded; next review is scheduled.
 
-Prepared by Codex for Beacon maintainers, 2 October 2026. Maintainer review pending.
+Prepared by Beacon Community, 2 October 2026. Copy approved.
